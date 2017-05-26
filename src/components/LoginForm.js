@@ -16,6 +16,7 @@ class LoginForm extends Component {
             label="Email"
             placeholder="email@gmail.com"
             onChangeText={this.onEmailChange.bind(this)}
+            value={this.props.email}
           />
         </CardSection>
         <CardSection>
@@ -35,5 +36,12 @@ class LoginForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  // becomes this.props.email in component
+  return {
+    email: state.auth.email
+  };
+};
+
 // second argument is action creator you want bound to component
-export default connect(null, { emailChanged })(LoginForm);
+export default connect(mapStateToProps, { emailChanged })(LoginForm);
