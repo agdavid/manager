@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; // access action creators via connect
+import { emailChanged } from '../actions'; // action creators
 import { Card, CardSection, Input, Button } from './common';
 
 class LoginForm extends Component {
+  onEmailChange(text) {
+      this.props.emailChanged(text);
+  }
+
   render() {
     return (
       <Card>
@@ -29,4 +35,5 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+// second argument is action creator you want bound to component
+export default connect(null, { emailChanged })(LoginForm);
