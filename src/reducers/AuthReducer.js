@@ -1,6 +1,12 @@
-import { EMAIL_CHANGED } from '../actions/types';
+import {
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED
+} from '../actions/types';
 
-const INITIAL_STATE = { email: '' };
+const INITIAL_STATE = {
+  email: '',
+  password: ''
+ };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -9,6 +15,8 @@ export default (state = INITIAL_STATE, action) => {
       // create a new state object with all the same key/values as original state
       // then set/overwrite a specific key with the updated value
       return { ...state, email: action.payload };
+    case PASSWORD_CHANGED:
+      return { ...state, password: action.payload };
     default:
       return state;
   }
