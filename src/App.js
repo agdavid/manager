@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
  // connects to redux store via connect so can obtain state for components
 import { Provider } from 'react-redux';
 // stores state
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
+import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import LoginForm from './components/LoginForm';
 
@@ -23,8 +23,9 @@ class App extends Component {
   }
 
   render() {
+    const store = createStore(reducers), {}, applyMiddleware(ReduxThunk);
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={store}>
         <LoginForm />
       </Provider>
     );
