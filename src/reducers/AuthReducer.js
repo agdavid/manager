@@ -9,6 +9,8 @@ const INITIAL_STATE = {
  };
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(action);
+
   switch (action.type) {
     case EMAIL_CHANGED:
       // To get react to see a new state and re-render components

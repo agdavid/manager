@@ -21,6 +21,15 @@ export const passwordChanged = (text) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  firebase.auth().signInWithEmailAndPassword()(email, password)
-    .then(user => console.log(user));
+  // using ReduxThunk allows first to run the function
+  // then when function is run use dispatch to send action
+  return (dispatch) => {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(user => {
+        dispatch({
+          type: 'LOGIN_USER_SUCCESS',
+          payload: user
+        });
+      });
+  };
 };

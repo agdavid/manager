@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; // access action creators via connect
-import { emailChanged, passwordChanged } from '../actions'; // action creators
+import { emailChanged, passwordChanged, loginUser } from '../actions'; // action creators
 import { Card, CardSection, Input, Button } from './common';
 
 class LoginForm extends Component {
@@ -10,6 +10,12 @@ class LoginForm extends Component {
 
   onPasswordChange(text) {
       this.props.passwordChanged(text);
+  }
+
+  onButtonPress() {
+    const { email, password } = this.props;
+
+    this.props.loginUser({ email, password });
   }
 
   render() {
@@ -33,7 +39,7 @@ class LoginForm extends Component {
           />
         </CardSection>
         <CardSection>
-          <Button>
+          <Button onPress={this.onButtonPress.bind(this)}>
             Login
           </Button>
         </CardSection>
@@ -51,4 +57,6 @@ const mapStateToProps = state => {
 };
 
 // second argument is action creator you want bound to component
-export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm);
+export default connect(mapStateToProps, {
+    emailChanged, passwordChanged, loginUser
+  })(LoginForm);
