@@ -26,23 +26,18 @@ export const loginUser = ({ email, password }) => {
   // then when function is run use dispatch to send action
   return (dispatch) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-      // login
-      .then(user => {
-        dispatch({
-          type: LOGIN_USER_SUCCESS,
-          payload: user
-        });
-      })
-      // failed login b/c no existing account
+      .then(user => loginUserSuccess(dispatch, user))
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
-          // login
-          .then(user => {
-            dispatch({
-              type: LOGIN_USER_SUCCESS,
-              payload: user
-            });
-          });
+          .then(user => loginUserSuccess(dispatch, user));
       });
   };
+};
+
+//login helper method
+const loginUserSuccess = (dispatch, user) => {
+  dispatch({
+    type: LOGIN_USER_SUCCESS,
+    payload: user
+  });
 };
