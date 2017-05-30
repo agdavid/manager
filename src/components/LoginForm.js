@@ -52,7 +52,8 @@ const mapStateToProps = state => {
   // becomes this.props.email in component
   return {
     email: state.auth.email,
-    password: state.auth.password
+    password: state.auth.password,
+    error: state.auth.error
   };
 };
 
