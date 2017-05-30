@@ -1,18 +1,18 @@
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
-  LOGIN_USER_SUCCESS
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL
 } from '../actions/types';
 
 const INITIAL_STATE = {
   email: '',
   password: '',
-  user: null
+  user: null,
+  error: ''
  };
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(action);
-
   switch (action.type) {
     case EMAIL_CHANGED:
       // To get react to see a new state and re-render components
@@ -23,6 +23,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, password: action.payload }; //state.auth.password
     case LOGIN_USER_SUCCESS:
       return { ...state, user: action.payload }; //state.auth.user
+    case LOGIN_USER_FAIL:
+      return { ...state, error: 'Authentication Failed.', password: ''};
     default:
       return state;
   }
