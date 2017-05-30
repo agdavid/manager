@@ -41,7 +41,7 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <Text>
+        <Text style={styles.errorTextStyle}>
           {this.props.error}
         </Text>
 
@@ -54,6 +54,14 @@ class LoginForm extends Component {
     );
   }
 }
+
+const styles = {
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  }
+};
 
 const mapStateToProps = ({ auth }) => {
   const { email, password, error } = auth;
