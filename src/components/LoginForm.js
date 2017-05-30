@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 import { connect } from 'react-redux'; // access action creators via connect
 import { emailChanged, passwordChanged, loginUser } from '../actions'; // action creators
 import { Card, CardSection, Input, Button } from './common';
@@ -29,6 +30,7 @@ class LoginForm extends Component {
             value={this.props.email}
           />
         </CardSection>
+
         <CardSection>
           <Input
             secureTextEntry
@@ -38,6 +40,11 @@ class LoginForm extends Component {
             value={this.props.password}
           />
         </CardSection>
+
+        <Text>
+          {this.props.error}
+        </Text>
+
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
             Login
