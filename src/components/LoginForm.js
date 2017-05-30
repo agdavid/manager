@@ -51,11 +51,7 @@ class LoginForm extends Component {
 const mapStateToProps = ({ auth }) => {
   const { email, password, error } = auth;
   // becomes this.props.email in component
-  return {
-    email: email,
-    password: password,
-    error: error
-  };
+  return { email, password, error };
 };
 
 // second argument is action creator you want bound to component
