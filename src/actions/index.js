@@ -58,5 +58,5 @@ const loginUserSuccess = (dispatch, user) => {
   });
 
   // navigate by Scene key
-  Actions.employeeList();
+  Actions.main();
 };
