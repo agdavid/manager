@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Picker, Text } from 'react-native';
-import { connect } from 'react-redux'; // access to action creator from component
-import { employeeUpdate } from '../actions'; // import action creater
+import { connect } from 'react-redux';
+import { employeeUpdate } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
 class EmployeeCreate extends Component {
@@ -27,9 +27,7 @@ class EmployeeCreate extends Component {
         </CardSection>
 
         <CardSection style={{ flexDirection: 'column' }}>
-          <Text style={styles.pickerTextStyle}>
-            Shift
-          </Text>
+          <Text style={styles.pickerTextStyle}>Shift</Text>
           <Picker
             style={{ flex: 1 }}
             selectedValue={this.props.shift}

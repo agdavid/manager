@@ -3,7 +3,6 @@ import { View } from 'react-native';
 
 const CardSection = (props) => {
   return (
-    // primitive element prop can take an array; anything on right overwrites the left
     <View style={[styles.containerStyle, props.style]}>
       {props.children}
     </View>
