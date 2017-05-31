@@ -13,7 +13,7 @@ export default (state = INITIAL_STATE, action) => {
     case EMPLOYEE_UPDATE:
       // action.payload = { prop: 'name', value: 'jane' }
       // square braces are key interpolation to add { name: 'jane' } to state
-      return { ...state, [action.payload.prop]: action.payload.value }
+      return { ...state, [action.payload.prop]: action.payload.value };
     default:
       return state;
   }
