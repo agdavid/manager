@@ -9,7 +9,7 @@ class EmployeeCreate extends Component {
     // on press, take latest
     const { name, phone, shift } = this.props;
     // pass to action creator
-    this.props.employeeCreate({ name, phone, shift });
+    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
   }
 
   render() {
