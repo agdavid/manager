@@ -12,9 +12,9 @@ class EmployeeList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // nextProps are the next set of props that componentWillReceiveProps
+    // nextProps are the next set of props that this component
     // will be rendered with
-    //this.props is still the old set of props
+    // this.props is still the old set of props
 
     this.createDataSource(nextProps);
   }
@@ -28,24 +28,23 @@ class EmployeeList extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
+        <Text>Employee List</Text>
+        <Text>Employee List</Text>
+        <Text>Employee List</Text>
+        <Text>Employee List</Text>
+        <Text>Employee List</Text>
+        <Text>Employee List</Text>
       </View>
     );
   }
 }
 
 const mapStateToProps = state => {
-  // take object of employees with many key-value pairs (state.employees)
-  // for every employee (val), take the key (uid)
   const employees = _.map(state.employees, (val, uid) => {
-    // object containing all props of employee (val) and the id (uid)
     return { ...val, uid };
-    // { shift: 'Monday', name: 'Steve', id: '12345'};
-    // put each object into the array 'employees'
   });
 
   return { employees };
