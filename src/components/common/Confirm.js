@@ -4,7 +4,21 @@ import { CardSection } from './CardSection';
 import { Button } from './Button';
 
 const Confirm = () => {
-
+  return (
+    <Modal
+    >
+      <View>
+        <CardSection>
+          <Text>
+          </Text>
+        </CardSection>
+        <CardSection>
+          <Button>Yes</Button>
+          <Button>No</Button>
+        </CardSection>
+      </View>
+    </Modal>
+  );
 };
 
 export { Confirm };
