@@ -8,10 +8,10 @@ const Confirm = ({ children, visible, onAccept, onDecline }) => {
 
   return (
     <Modal
-      visible={visible} // this.props.visible will be true/false
+      visible={visible}
       transparent
       animationType="slide"
-      onRequestClose={() => {}} // android requires this prop, even if empty
+      onRequestClose={() => {}}
     >
       <View style={containerStyle}>
         <CardSection style={cardSectionStyle}>
@@ -31,16 +31,16 @@ const Confirm = ({ children, visible, onAccept, onDecline }) => {
 
 const styles = {
   cardSectionStyle: {
-    justifyContent: 'center' //everything in section center
+    justifyContent: 'center'
   },
   textStyle: {
-    flex: 1, // fill screen
+    flex: 1,
     fontSize: 18,
     textAlign: 'center',
     lineHeight: 40
   },
   containerStyle: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75', // black w/ slight opacity
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
     position: 'relative',
     flex: 1,
     justifyContent: 'center'
